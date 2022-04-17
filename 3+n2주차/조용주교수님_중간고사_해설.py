@@ -13,7 +13,7 @@ def leap_year_convert_func(int_year):
 # 년도 변환 함수
 def year_convert_func(str_input):
     # 문자열 년도 슬라이싱
-    str_input = str_input[:2]
+    str_input = str_input[:2] # 실질적으로 str_input에 들어있는 데이터는 2자리 !
 
     # 문자열이 숫자로만 구성되었는지 확인
     if str_input.isdigit() == True:
@@ -37,7 +37,7 @@ def year_convert_func(str_input):
 # 월 반환 함수
 def month_convert_func(str_input):
     # 문자열 월 슬라이싱
-    str_input = str_input[2:4]
+    str_input = str_input[2:4] # 실질적으로 str_input에 들어있는 데이터는 2자리 !
 
     # 문자열이 숫자로만 구성되었는지 확인
     if str_input.isdigit() == True:
@@ -102,7 +102,7 @@ def day_convert_func(str_input, int_year, int_month):
                     return 0
 
         # 4, 6, 9, 11월 처리
-        else:
+        elif int_month == 4 or int_month == 6 or int_month == 9 or int_month == 11:
             # 일자가 30일 일 때
             if int_input >= 1 and int_input <= 30:
                 return int_input
@@ -111,6 +111,12 @@ def day_convert_func(str_input, int_year, int_month):
             else:
                 print("일이 해당 월 범위에 포함되지 않습니다.")
                 return 0
+        
+        # int_month에 0(False)이 들어왔을때
+        else:
+            print("일이 해당 월 범위에 포함되지 않습니다.")
+            return 0
+            
     
     # 문자열이 숫자로만 구성되어있지 않을때
     else:
@@ -120,7 +126,7 @@ def day_convert_func(str_input, int_year, int_month):
 # 주민 정보 변환 함수
 def resident_convert_func(str_input, int_year):
     # 문자열 주민 정보 슬라이싱
-    str_input = str_input[7:]
+    str_input = str_input[7:] # str_input에 저장되어 있는 숫자는 - 뒷자리 모두 !
 
     # 문자열이 숫자로만 구성되었는지 확인
     if str_input.isdigit() == True:
@@ -187,6 +193,7 @@ def isVaild(str_input):
         # 아닐때
         else:
             print("주민등록번호에 '-'가 적절한 위치에 있지 않거나 없습니다.")
+            return False
     
     else:
         print("주민등록 번호의 길이가 맞지 않습니다.")
