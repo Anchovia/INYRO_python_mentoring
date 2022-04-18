@@ -1,6 +1,8 @@
 # 이니로_파이썬_조용주교수님_중간고사_해설_병훈.py
+# carolsuki7
 
 # 윤년 처리 함수
+# 윤년: 서력기원의 연수가 4로 나누어 떨어지는 해 ex) 2000년, 2004년, ...
 def leap_year_convert_func(int_year):
     # 윤년일 때
     if int_year % 4 == 0:
@@ -13,10 +15,10 @@ def leap_year_convert_func(int_year):
 # 년도 변환 함수
 def year_convert_func(str_input):
     # 문자열 년도 슬라이싱
-    str_input = str_input[:2] # 실질적으로 str_input에 들어있는 데이터는 2자리 !
+    str_input = str_input[:2] # 실질적으로 str_input에 들어있는 데이터는 2자리(년도 앞자리) !
 
     # 문자열이 숫자로만 구성되었는지 확인
-    if str_input.isdigit() == True:
+    if str_input.isdigit():
         int_input = int(str_input) # 문자열 -> 정수형 형 변환
         
         # 2000년대 처리
@@ -34,13 +36,13 @@ def year_convert_func(str_input):
         print("생년의 일자가 숫자가 아닙니다.")
         return 0
 
-# 월 반환 함수
+# 월 변환 함수
 def month_convert_func(str_input):
     # 문자열 월 슬라이싱
-    str_input = str_input[2:4] # 실질적으로 str_input에 들어있는 데이터는 2자리 !
+    str_input = str_input[2:4] # 실질적으로 str_input에 들어있는 데이터는 2자리(월에 해당하는 문자) !
 
     # 문자열이 숫자로만 구성되었는지 확인
-    if str_input.isdigit() == True:
+    if str_input.isdigit():
         int_input = int(str_input) # 문자열 -> 정수형 형 변환
         
         # 월에 해당하는 숫자의 범위가 1~12 사이일 때
@@ -63,7 +65,7 @@ def day_convert_func(str_input, int_year, int_month):
     str_input = str_input[4:6]
 
     # 문자열이 숫자로만 구성되었는지 확인
-    if str_input.isdigit() == True:
+    if str_input.isdigit():
         int_input = int(str_input) # 문자열 -> 정수형 형 변환
 
         # 1, 3, 5, 7, 8, 10, 12월 처리
@@ -126,10 +128,10 @@ def day_convert_func(str_input, int_year, int_month):
 # 주민 정보 변환 함수
 def resident_convert_func(str_input, int_year):
     # 문자열 주민 정보 슬라이싱
-    str_input = str_input[7:] # str_input에 저장되어 있는 숫자는 - 뒷자리 모두 !
+    str_input = str_input[7:] # str_input에 저장되어 있는 숫자는 - 뒷자리 모두(맨 앞은 인덱스 [0]번으로 시작 !) !
 
     # 문자열이 숫자로만 구성되었는지 확인
-    if str_input.isdigit() == True:
+    if str_input.isdigit():
         # 1900년 ~ 1999년 사이 판단
         if int_year >= 1900 and int_year <= 1999:
             # 주민번호 앞 자리가 1 혹은 2일 때
